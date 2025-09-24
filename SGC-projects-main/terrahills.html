@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terra Hill - Moggs Estates</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .hero-section {
+            background-image: linear-gradient(135deg,
+                    rgba(0, 0, 0, 0.7),
+                    rgba(34, 197, 94, 0.3)),
+                url("https://moggs.in/wp-content/uploads/2025/03/8-scaled.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .section-gradient {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .feature-icon {
+            background: linear-gradient(135deg, #22c55e, #15803d);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #22c55e, #15803d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mobile-menu-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .number-badge {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                background-attachment: scroll;
+            }
+        }
+
+        .container {
+            width: 90% !important;
+            max-width: 1280px !important;
+        }
+    </style>
+    <!--favicon--->
+        <link rel="shortcut icon" href="assets/l.png">
+         <!--favicon--->
+</head>
+
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="glass-effect shadow-xl sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="https://moggs.in/" class="flex items-center transition-transform hover:scale-105">
+                <img src="https://moggs.in/wp-content/uploads/2020/02/mogg_s_logo-removebg.png" alt="Moggs Estates Logo"
+                    class="h-10 md:h-12" />
+            </a>
+
+            <nav class="hidden lg:flex space-x-8">
+                <a href="#overview"
+                    class="text-gray-700 hover:text-green-600 transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full">Overview</a>
+                <a href="#why-choose"
+                    class="text-gray-700 hover:text-green-600 transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full">Features</a>
+                <a href="#connectivity"
+                    class="text-gray-700 hover:text-green-600 transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full">Location</a>
+                <a href="#callback"
+                    class="text-gray-700 hover:text-green-600 transition-all duration-300 font-medium relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-green-600 after:transition-all after:duration-300 hover:after:w-full">Contact</a>
+            </nav>
+
+            <button id="header-cta" href="https://moggs.in/contact-us/"
+                class="hidden lg:block bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-full hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-medium">Schedule
+                a visit</button>
+
+            <button class="lg:hidden text-gray-700 hover:text-green-600 transition-colors duration-300"
+                id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div class="lg:hidden hidden glass-effect py-4 px-4 shadow-xl mobile-menu-transition" id="mobile-menu">
+            <div class="space-y-1">
+                <a href="#overview"
+                    class="block py-3 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-300 font-medium">Overview</a>
+                <a href="#why-choose"
+                    class="block py-3 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-300 font-medium">Features</a>
+                <a href="#connectivity"
+                    class="block py-3 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-300 font-medium">Location</a>
+                <a href="#callback"
+                    class="block py-3 px-4 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-300 font-medium">Contact</a>
+                <button id="mobile-cta"
+                    class="block mt-4 bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-full text-center hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-lg font-medium w-full">Request
+                    Callback</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-20 md:py-32 lg:py-40 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-black/60 via-transparent to-green-900/40"></div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <div class="animate-fade-in">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                    Mogg's <span class="gradient-text">Terra Hill</span>
+                </h1>
+                <p class="text-xl md:text-2xl lg:text-3xl max-w-4xl mx-auto mb-8 leading-relaxed opacity-90">
+                    A serene escape into nature with modern amenities
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 mt-12">
+                    <a href="#overview"
+                        class="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-semibold text-lg">
+                        Explore Now
+                    </a>
+                    <button id="hero-cta"
+                        class="bg-white/90 hover:bg-white text-green-700 px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-semibold text-lg">
+                        Request Callback
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating elements -->
+        <div class="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-32 h-32 bg-green-500/20 rounded-full blur-xl animate-pulse"></div>
+    </section>
+
+    <style>
+        /* Fade-in and scale effect for the inner form box */
+        #popup-form.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #popup-form.show .transform {
+            transform: scale(1);
+        }
+
+        /* Enhanced popup styling to match page theme */
+        .popup-backdrop {
+            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .popup-content {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 2px solid rgba(34, 197, 94, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .popup-close-btn {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+        }
+
+        .popup-close-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+        }
+
+        .popup-input {
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .popup-input:focus {
+            border-color: #22c55e;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+            background: white;
+        }
+
+        .popup-submit-btn {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+        }
+
+        .popup-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+        }
+    </style>
+
+    <!-- Popup Form -->
+    <div id="popup-form"
+        class="fixed inset-0 popup-backdrop flex items-center justify-center z-50 opacity-0 pointer-events-none transition-all duration-500">
+        <div
+            class="popup-content text-gray-800 p-8 rounded-2xl max-w-md w-full relative scale-95 transform transition-all duration-500 mx-4">
+            <button id="close-popup" class="popup-close-btn absolute -top-5 -right-5 text-xl font-bold">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="text-center mb-6">
+
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Request Callback</h3>
+                <p class="text-gray-600">Get in touch with our experts</p>
+            </div>
+
+            <form class="space-y-4 log-form">
+                <div>
+                    <label class="block mb-2 font-semibold text-gray-700">Full Name</label>
+                    <input type="text" name="Name" class="popup-input w-full px-4 py-3 rounded-xl"
+                        placeholder="Enter your full name" required />
+                </div>
+                <div>
+                    <label class="block mb-2 font-semibold text-gray-700">Phone Number</label>
+                    <input type="tel" name="Phone" class="popup-input w-full px-4 py-3 rounded-xl"
+                        placeholder="Enter your phone number" required />
+                </div>
+                <div>
+                    <label class="block mb-2 font-semibold text-gray-700">Email Address</label>
+                    <input type="email" name="Email" class="popup-input w-full px-4 py-3 rounded-xl" placeholder="Enter your email"
+                        required />
+                </div>
+
+                <button type="submit"
+                    class="popup-submit-btn w-full text-white font-semibold py-3 px-6 rounded-xl text-lg">
+                    <i class="fas fa-paper-plane mr-2"></i>
+                    Submit Request
+                </button>
+            </form>
+
+            <div class="text-center mt-6">
+                <p class="text-sm text-gray-500">
+                    <i class="fas fa-shield-alt mr-1"></i>
+                    Your information is secure and will not be shared
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loader" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-xl">
+            <div class="flex items-center space-x-3">
+                <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600"></div>
+                <span class="text-gray-700 font-semibold">Submitting...</span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Navigation Tabs -->
+    <!-- <div class="bg-white shadow-lg sticky top-16 md:top-20 z-40 border-b border-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex overflow-x-auto scrollbar-hide">
+                <a href="#overview" class="px-4 md:px-6 py-4 text-green-600 border-b-3 border-green-600 font-semibold whitespace-nowrap transition-all duration-300">Overview</a>
+                <a href="#why-choose" class="px-4 md:px-6 py-4 text-gray-600 hover:text-green-600 font-medium whitespace-nowrap transition-all duration-300 border-b-3 border-transparent hover:border-green-300">Why choose Terra Hill?</a>
+                <a href="#connectivity" class="px-4 md:px-6 py-4 text-gray-600 hover:text-green-600 font-medium whitespace-nowrap transition-all duration-300 border-b-3 border-transparent hover:border-green-300">Farm connectivity</a>
+                <a href="#highlights" class="px-4 md:px-6 py-4 text-gray-600 hover:text-green-600 font-medium whitespace-nowrap transition-all duration-300 border-b-3 border-transparent hover:border-green-300">Investment highlights</a>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-16 md:py-24 section-gradient">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+                <div class="lg:w-1/2 animate-fade-in">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-8 leading-tight">
+                        About <span class="gradient-text">Terra Hill</span>
+                    </h2>
+                    <div class="space-y-6 text-gray-700 text-lg leading-relaxed">
+                        <p>
+                            Mogg's Terra Hill is a sprawling
+                            <strong class="text-green-700">40-acre green managed farmland</strong>
+                            located near Bengaluru-Mangaluru Expressway, just 45 minutes
+                            drive from Nelamangala at KUNIGAL. Consist of 100+ Plots.
+                            Surrounded by lush mountains and dense plantations, it offers a
+                            serene escape into nature.
+                        </p>
+                        <p>
+                            Featuring a
+                            <strong class="text-green-700">4-acre water stream</strong> with
+                            advanced drip irrigation, this property is perfect for
+                            sustainable agriculture or investment. It's modern amenities,
+                            including a clubhouse, swimming pool, children's play area, and
+                            a temple, etc. make it a harmonious blend of nature and luxury.
+                        </p>
+                        <p class="text-xl font-semibold text-green-800">
+                            Terra Hill isn't just land; it's a gateway to peace, growth, and
+                            opportunity.
+                        </p>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="grid grid-cols-2 gap-4 md:gap-6">
+                        <div class="space-y-4 md:space-y-6">
+                            <img src="https://moggs.in/wp-content/uploads/2025/03/8-scaled.jpg" alt="Terra Hill"
+                                class="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 h-48 md:h-64 w-full object-cover" />
+                            <img src="https://moggs.in/wp-content/uploads/2024/07/4-3.jpg" alt="Terra Hill"
+                                class="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 h-48 md:h-64 w-full object-cover" />
+                        </div>
+                        <div class="space-y-4 md:space-y-6 mt-8">
+                            <img src="https://moggs.in/wp-content/uploads/2024/10/DSC00401-scaled.jpg" alt="Terra Hill"
+                                class="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 h-48 md:h-64 w-full object-cover" />
+                            <img src="https://moggs.in/wp-content/uploads/2024/09/07.jpg" alt="Terra Hill"
+                                class="rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 h-48 md:h-64 w-full object-cover" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="why-choose" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+                    What this place <span class="gradient-text">offers?</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Discover the comprehensive amenities and features that make Terra
+                    Hill your perfect investment destination
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                
+                <div
+                    class="card-hover bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl shadow-lg border border-green-100">
+                    <div class="flex items-center mb-6">
+                        <div class="feature-icon p-4 rounded-2xl mr-4 shadow-lg">
+                            <i class="fas fa-umbrella-beach text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-800">
+                            Retreat & Hospitality
+                        </h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-campground text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Camping sites</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-hiking text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Trekking trails</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-fire text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Bonfire area</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-binoculars text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">View point</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-bicycle text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Cycling trail</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-place-of-worship text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Temple</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-tree text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Forest garden</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-child text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Kids play area</span>
+                        </li>
+                    </ul>
+                </div>
+
+               
+                <div
+                    class="card-hover bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl shadow-lg border border-green-100">
+                    <div class="flex items-center mb-6">
+                        <div class="feature-icon p-4 rounded-2xl mr-4 shadow-lg">
+                            <i class="fas fa-tint text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-800">
+                            Water Zone
+                        </h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-water text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Borewell</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-tint text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Drip irrigation</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-recycle text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Bore recharge system</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-swimming-pool text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Water body</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-home text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Motor house</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-tank text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Overhead tanks</span>
+                        </li>
+                    </ul>
+                </div>
+
+                
+                <div
+                    class="card-hover bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-2xl shadow-lg border border-green-100 md:col-span-2 lg:col-span-1">
+                    <div class="flex items-center mb-6">
+                        <div class="feature-icon p-4 rounded-2xl mr-4 shadow-lg">
+                            <i class="fas fa-users text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl md:text-2xl font-bold text-gray-800">
+                            Residential Staff Space
+                        </h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-user-tie text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Farmer's quarters</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-shield-alt text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Security quarters</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-parking text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Parking lot</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-tools text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Service area</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-warehouse text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Agri storage house</span>
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-user-md text-green-600 mr-3 text-lg"></i>
+                            <span class="font-medium">Agronomist house</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="py-16 md:py-24 section-gradient relative overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute top-20 left-10 w-32 h-32 bg-green-500/10 rounded-full blur-xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-24 h-24 bg-green-400/10 rounded-full blur-xl animate-pulse"></div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+                    Key <span class="gradient-text">Features</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Discover what makes Terra Hill the perfect investment opportunity with our comprehensive amenities
+                    and world-class infrastructure
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
+                <!-- Feature 1: Land Area -->
+                <div class="feature-card group">
+                    <div
+                        class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl shadow-lg border border-green-100 hover:shadow-2xl transition-all duration-500 h-full">
+                        <div class="feature-icon-wrapper mb-6">
+                            <div
+                                class="bg-gradient-to-r from-green-600 to-green-700 w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-expand-arrows-alt text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Sprawling Land Area</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            A magnificent <strong class="text-green-700">40-acre green managed farmland</strong>
+                            offering vast opportunities for agricultural activities and investment growth.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Location -->
+                <div class="feature-card group">
+                    <div
+                        class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl shadow-lg border border-green-100 hover:shadow-2xl transition-all duration-500 h-full">
+                        <div class="feature-icon-wrapper mb-6">
+                            <div
+                                class="bg-gradient-to-r from-green-600 to-green-700 w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-map-marker-alt text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Prime Location</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Just <strong class="text-green-700">45 minutes drive</strong> from Nelamangala at KUNIGAL,
+                            providing easy accessibility while maintaining the serenity of nature.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Security -->
+                <div class="feature-card group">
+                    <div
+                        class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl shadow-lg border border-green-100 hover:shadow-2xl transition-all duration-500 h-full">
+                        <div class="feature-icon-wrapper mb-6">
+                            <div
+                                class="bg-gradient-to-r from-green-600 to-green-700 w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-shield-alt text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Complete Security</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            <strong class="text-green-700">24/7 security</strong> with comprehensive fencing (stone
+                            poles, cementing poles and barbed wires) ensuring complete protection.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 4: Water Management -->
+                <div class="feature-card group">
+                    <div
+                        class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl shadow-lg border border-green-100 hover:shadow-2xl transition-all duration-500 h-full">
+                        <div class="feature-icon-wrapper mb-6">
+                            <div
+                                class="bg-gradient-to-r from-green-600 to-green-700 w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-tint text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Advanced Water System</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            <strong class="text-green-700">Water pipeline for each plot</strong> with drip irrigation and
+                            comprehensive rainwater harvesting system for sustainable farming.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 5: Infrastructure -->
+                <div class="feature-card group">
+                    <div
+                        class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl shadow-lg border border-green-100 hover:shadow-2xl transition-all duration-500 h-full">
+                        <div class="feature-icon-wrapper mb-6">
+                            <div
+                                class="bg-gradient-to-r from-green-600 to-green-700 w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-tools text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Complete Infrastructure</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            <strong class="text-green-700">Fully marked plot boundaries</strong> with electricity,
+                            washrooms, kitchen area, and parking spaces for complete convenience.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 6: Labor Support -->
+                <div class="feature-card group">
+                    <div
+                        class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl shadow-lg border border-green-100 hover:shadow-2xl transition-all duration-500 h-full">
+                        <div class="feature-icon-wrapper mb-6">
+                            <div
+                                class="bg-gradient-to-r from-green-600 to-green-700 w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-users text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Professional Support</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            <strong class="text-green-700">4 full-time laborers</strong> assigned to take care of your
+                            plots, ensuring proper maintenance and care throughout the year.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Feature 7: Amenities -->
+                <div class="feature-card group lg:col-span-2">
+                    <div
+                        class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl shadow-lg border border-green-100 hover:shadow-2xl transition-all duration-500 h-full">
+                        <div class="flex items-start gap-6">
+                            <div class="feature-icon-wrapper mb-6">
+                                <div
+                                    class="bg-gradient-to-r from-green-600 to-green-700 w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-crown text-white text-2xl"></i>
+                                </div>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-gray-800 mb-4">Premium Amenities</h3>
+                                <p class="text-gray-600 leading-relaxed mb-4">
+                                    Enjoy spectacular amenities including <strong class="text-green-700">clubhouse,
+                                        swimming pool, badminton court, children's play area, kitchen, cowsheds</strong>
+                                    and many more.
+                                </p>
+                                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        <span>Clubhouse</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        <span>Swimming Pool</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        <span>Badminton Court</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        <span>Children's Area</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        <span>Kitchen</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-600">
+                                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                        <span>Cowsheds</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 8: Activities -->
+                <div class="feature-card group">
+                    <div
+                        class="bg-gradient-to-br from-green-50 to-emerald-50 p-8 rounded-3xl shadow-lg border border-green-100 hover:shadow-2xl transition-all duration-500 h-full">
+                        <div class="feature-icon-wrapper mb-6">
+                            <div
+                                class="bg-gradient-to-r from-green-600 to-green-700 w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <i class="fas fa-hiking text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Recreational Activities</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Engage in activities like <strong class="text-green-700">cycling, trekking, camping, farming,
+                                tent house stay, planting saplings, bird watching</strong> and more.
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="connectivity" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-16">
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-8">
+                        <span class="gradient-text">Nearby</span> locations
+                    </h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+                        <div
+                            class="card-hover bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl shadow-lg border border-green-100">
+                            <h3 class="font-bold text-gray-800 mb-2 text-xl">Bangalore</h3>
+                            <p class="text-green-600 font-semibold text-lg">85km</p>
+                        </div>
+                        <div
+                            class="card-hover bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl shadow-lg border border-green-100">
+                            <h3 class="font-bold text-gray-800 mb-2 text-xl">
+                                Nelamangala
+                            </h3>
+                            <p class="text-green-600 font-semibold text-lg">45km</p>
+                        </div>
+                        <div
+                            class="card-hover bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl shadow-lg border border-green-100">
+                            <h3 class="font-bold text-gray-800 mb-2 text-xl">Solur</h3>
+                            <p class="text-green-600 font-semibold text-lg">40 Mins</p>
+                        </div>
+                        <div
+                            class="card-hover bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl shadow-lg border border-green-100">
+                            <h3 class="font-bold text-gray-800 mb-2 text-xl">
+                                Kunigal ByPass
+                            </h3>
+                            <p class="text-green-600 font-semibold text-lg">30 Mins</p>
+                        </div>
+                    </div>
+
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8">
+                        Nearby places to <span class="gradient-text">see</span>
+                    </h2>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-700 text-lg">
+                            <i class="fas fa-map-marker-alt text-green-600 mr-4 text-xl"></i>
+                            <span class="font-medium">Huthridurga Fort</span>
+                        </li>
+                        <li class="flex items-center text-gray-700 text-lg">
+                            <i class="fas fa-map-marker-alt text-green-600 mr-4 text-xl"></i>
+                            <span class="font-medium">Panchamukhi Hanuman Temple</span>
+                        </li>
+                        <li class="flex items-center text-gray-700 text-lg">
+                            <i class="fas fa-map-marker-alt text-green-600 mr-4 text-xl"></i>
+                            <span class="font-medium">Pavagada Fort</span>
+                        </li>
+                        <li class="flex items-center text-gray-700 text-lg">
+                            <i class="fas fa-map-marker-alt text-green-600 mr-4 text-xl"></i>
+                            <span class="font-medium">Rd Hills View Point</span>
+                        </li>
+                        <li class="flex items-center text-gray-700 text-lg">
+                            <i class="fas fa-map-marker-alt text-green-600 mr-4 text-xl"></i>
+                            <span class="font-medium">Hatti Lakamma Temple</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="lg:w-1/2">
+                    <div class="card-hover bg-gradient-to-br from-gray-50 to-gray-100 p-4 rounded-2xl shadow-lg">
+                        <img src="https://moggs.in/wp-content/uploads/2025/06/map-re-edit.png" alt="Terra Hill Map"
+                            class="w-full h-auto rounded-xl shadow-md" />
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button id="map-cta"
+                            class="inline-block bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 font-semibold text-lg">
+                            View Detailed Map
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <!-- <section id="why-choose" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    Comprehensive <span class="gradient-text">Amenities</span>
+                </h3>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Enjoy world-class facilities and amenities that enhance your investment value and lifestyle
+                </p>
+            </div>
+
+     
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="bg-gradient-to-r from-green-600 to-green-700 p-3 rounded-xl mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-swimming-pool text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800">Swimming Pool</h4>
+                    </div>
+                    <p class="text-gray-600 text-sm">Relax and rejuvenate in our premium swimming facility</p>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="bg-gradient-to-r from-blue-600 to-blue-700 p-3 rounded-xl mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-home text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800">Clubhouse</h4>
+                    </div>
+                    <p class="text-gray-600 text-sm">Exclusive clubhouse for community gatherings and events</p>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="bg-gradient-to-r from-purple-600 to-purple-700 p-3 rounded-xl mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-tree text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800">Fruit Trees</h4>
+                    </div>
+                    <p class="text-gray-600 text-sm">Abundant fruit, flower, and forest-bearing trees</p>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="bg-gradient-to-r from-amber-600 to-orange-600 p-3 rounded-xl mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-shield-alt text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800">Security</h4>
+                    </div>
+                    <p class="text-gray-600 text-sm">24/7 security with comprehensive fencing system</p>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="bg-gradient-to-r from-cyan-600 to-blue-600 p-3 rounded-xl mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-tint text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800">Water System</h4>
+                    </div>
+                    <p class="text-gray-600 text-sm">Advanced drip irrigation and water management</p>
+                </div>
+
+                <div
+                    class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="bg-gradient-to-r from-emerald-600 to-green-600 p-3 rounded-xl mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-parking text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-800">Parking</h4>
+                    </div>
+                    <p class="text-gray-600 text-sm">Dedicated parking spaces for all residents</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <div class="bg-gradient-to-r from-green-600 to-green-700 rounded-3xl p-8 shadow-2xl max-w-4xl mx-auto">
+                    <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">Ready to Start Your Investment Journey?
+                    </h3>
+                    <p class="text-green-100 text-lg mb-6">Join hundreds of satisfied investors who have already chosen
+                        Terra Hill for their farmland investment.</p>
+                    <button
+                        class="bg-white text-green-700 hover:bg-gray-100 font-semibold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <i class="fas fa-phone-alt mr-2"></i>
+                        Request Callback Now
+                    </button>
+                </div>
+            </div>
+
+
+
+        </div>
+    </section> -->
+
+    
+
+    <!-- Callback Form -->
+    <section id="callback"
+        class="py-16 md:py-24 bg-gradient-to-br from-green-700 via-green-600 to-emerald-700 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                        Request a callback
+                    </h2>
+                    <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
+                        Fill out the form below and our team will get back to you shortly
+                    </p>
+                </div>
+
+                <form class="glass-effect rounded-2xl shadow-2xl p-6 md:p-10 log-form">
+                    <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-semibold mb-3 text-lg">Name</label>
+                            <input type="text" id="name" name="Name"
+                                class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-green-500/20 focus:border-green-500 transition-all duration-300 text-lg text-gray-900"
+                                placeholder="Enter your name" required />
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-semibold mb-3 text-lg">Email</label>
+                            <input type="email" id="email" name="Email"
+                                class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-green-500/20 focus:border-green-500 transition-all duration-300 text-lg text-gray-900"
+                                placeholder="Enter your email" required />
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-semibold mb-3 text-lg">Phone
+                                number</label>
+                            <input type="tel" id="phone" name="Phone"
+                                class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-green-500/20 focus:border-green-500 transition-all duration-300 text-lg text-gray-900"
+                                placeholder="Enter your phone number" required />
+                        </div>
+                        <div>
+                            <label for="interest" class="block text-gray-700 font-semibold mb-3 text-lg">Interest
+                                in</label>
+                            <select id="interest" name="Interest"
+                                class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:ring-4 focus:ring-green-500/20 focus:border-green-500 transition-all duration-300 text-lg text-gray-900" required>
+                                <option value="">Select your interest</option>
+                                <option value="Terra Hill Farms">Terra Hill Farms</option>
+                                <option value="Other Projects">Other Projects</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <button type="submit"
+                            class="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-lg">
+                            Submit Request
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Background decoration -->
+        <div class="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-24 h-24 bg-green-400/20 rounded-full blur-xl animate-pulse"></div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 md:py-24 section-gradient">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
+                    What our <span class="gradient-text">clients say</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Hear from satisfied investors who have made Terra Hill their
+                    investment destination
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                <!-- Testimonial 1 -->
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="flex items-center mb-6">
+                        <img src="https://www.amity.edu/gurugram/microbackoffice/Uploads/TestimonialImage/98testi_RajivBasavaalumni.jpg"
+                            alt="Anil Kumar" class="h-16 w-16 rounded-full object-cover mr-4 shadow-lg" />
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-800">Anil Kumar</h4>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        "Investing in Terra Hill was one of the best decisions I've made.
+                        The management is professional and the returns have been
+                        excellent."
+                    </p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="card-hover bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="flex items-center mb-6">
+                        <img src="https://www.endometriosis-india.com/wp-content/uploads/2019/03/sravya-01.jpg"
+                            alt="Anil Kumar" class="h-16 w-16 rounded-full object-cover mr-4 shadow-lg" />
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-800">Priya Sharma</h4>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        "The amenities and natural beauty of Terra Hill are unmatched. My
+                        family enjoys spending weekends here away from the city chaos."
+                    </p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div
+                    class="card-hover bg-white p-8 rounded-2xl shadow-lg border border-gray-100 md:col-span-2 lg:col-span-1">
+                    <div class="flex items-center mb-6">
+                        <img src="https://media.istockphoto.com/id/1806223369/photo/portrait-of-a-young-investor-banker-at-the-workplace-inside-the-bank-office-a-businessman-in.jpg?s=612x612&w=0&k=20&c=9SBqYUyIqPQA2SBD6u0OhKskHZciDdrACE3GoVU5v9U="
+                            alt="Anil Kumar" class="h-16 w-16 rounded-full object-cover mr-4 shadow-lg" />
+                        <div>
+                            <h4 class="font-bold text-lg text-gray-800">Rahul Mehta</h4>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        "As an investor, I appreciate the transparency and professionalism
+                        of Moggs Estates. Terra Hill has exceeded my expectations."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <!-- Call to Action -->
+            <div class="flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-12">
+                <div class="text-center">
+                    <h2 class="text-center text-2xl font-bold mb-4">
+                        Ready to Invest in Terra Hill?
+                    </h2>
+                    <p class="text-center text-lg text-gray-300 max-w-xl mx-auto lg:mx-0">
+                        Join hundreds of satisfied investors who have already chosen Terra Hill for their farmland
+                        investment. Get started today!
+                    </p>
+                    <button id="footer-cta"
+                        class="text-center mt-8 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded transition duration-300">
+                        Request Callback Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-gray-700 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">
+                        Copyright © 2025 Mogg's Agritech Pvt. Ltd.
+                    </p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="https://moggs.in/privacy-policy/"
+                            class="text-gray-400 hover:text-green-400 text-sm transition-colors">Privacy
+                            Policy</a>
+                        <a href="https://moggs.in/moggsterms-conditions/"
+                            class="text-gray-400 hover:text-green-400 text-sm transition-colors">Terms &
+                            Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </footer>
+
+    <script>
+        const loader = document.getElementById("loader");
+
+        document.querySelectorAll(".log-form").forEach((form) => {
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const formData = new FormData(form);
+
+                // ✅ Add IST timestamp (short version)
+                const now = new Date();
+                const ist = new Date(now.getTime() + 5.5 * 60 * 60 * 1000);
+                const timestamp = ist.toISOString().slice(0, 19).replace("T", " ");
+                formData.append("Timestamp", timestamp);
+
+                const scriptURL =
+                    "https://script.google.com/macros/s/AKfycby_dE4oGH7YtMWHOGLNPXM-4VdLT3gvrX5OWMYq4-LjIacZYbKPpgqukZszFcoJzKOTqw/exec";
+
+                // ✅ Show loader
+                loader.style.display = "flex";
+
+                fetch(scriptURL, {
+                    method: "POST",
+                    body: formData,
+                })
+                    .then((response) => {
+                        loader.style.display = "none"; // ✅ Hide loader
+                        if (response.ok) {
+                            window.alert(
+                                "Thank you for reaching out to us! Your form has been submitted successfully. Our team will get back to you shortly."
+                            );
+                            form.reset();
+                            window.location.reload(); // Reload the page to reset the form
+                        } else {
+                            throw new Error("Network response was not ok.");
+                        }
+                    })
+                    .catch((error) => {
+                        loader.style.display = "none"; // ✅ Hide loader
+                        console.error("Error submitting form:", error);
+                        window.alert("Something went wrong. Please try again!");
+                    });
+            });
+        });
+    </script>
+
+    <script>
+        // Mobile menu toggle
+        document
+            .getElementById("mobile-menu-button")
+            .addEventListener("click", function () {
+                const menu = document.getElementById("mobile-menu");
+                const icon = this.querySelector("i");
+
+                menu.classList.toggle("hidden");
+
+                if (menu.classList.contains("hidden")) {
+                    icon.classList.remove("fa-times");
+                    icon.classList.add("fa-bars");
+                } else {
+                    icon.classList.remove("fa-bars");
+                    icon.classList.add("fa-times");
+                }
+            });
+
+
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute("href");
+                if (targetId === "#") return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Update active tab
+                    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+                        link.classList.remove("text-green-600", "border-green-600");
+                        link.classList.add("text-gray-600", "border-transparent");
+                    });
+
+                    this.classList.remove("text-gray-600", "border-transparent");
+                    this.classList.add("text-green-600", "border-green-600");
+
+                    // Scroll to target
+                    const headerHeight = 120;
+                    window.scrollTo({
+                        top: targetElement.offsetTop - headerHeight,
+                        behavior: "smooth",
+                    });
+
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById("mobile-menu");
+                    if (!mobileMenu.classList.contains("hidden")) {
+                        mobileMenu.classList.add("hidden");
+                        document
+                            .getElementById("mobile-menu-button")
+                            .querySelector("i")
+                            .classList.remove("fa-times");
+                        document
+                            .getElementById("mobile-menu-button")
+                            .querySelector("i")
+                            .classList.add("fa-bars");
+                    }
+                }
+            });
+        });
+
+        // Intersection Observer for section highlighting
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: "-120px 0px -50% 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const targetId = "#" + entry.target.id;
+                    const navLink = document.querySelector(`a[href="${targetId}"]`);
+
+                    if (navLink) {
+                        // Remove active class from all nav links
+                        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+                            link.classList.remove("text-green-600", "border-green-600");
+                            link.classList.add("text-gray-600", "border-transparent");
+                        });
+
+                        // Add active class to current nav link
+                        navLink.classList.remove("text-gray-600", "border-transparent");
+                        navLink.classList.add("text-green-600", "border-green-600");
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections with IDs
+        document.querySelectorAll("section[id]").forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Add loading animation
+        window.addEventListener("load", function () {
+            document.body.classList.add("loaded");
+        });
+
+        // Popup functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Open popup - handle all CTA buttons
+            const ctaButtons = document.querySelectorAll("#hero-cta, #mobile-cta, #footer-cta");
+            ctaButtons.forEach(function(button) {
+                button.addEventListener("click", function () {
+                    const popup = document.getElementById("popup-form");
+                    popup.classList.add("show");
+                });
+            });
+
+            // Close popup
+            const closeButton = document.getElementById("close-popup");
+            if (closeButton) {
+                closeButton.addEventListener("click", function () {
+                    const popup = document.getElementById("popup-form");
+                    popup.classList.remove("show");
+                });
+            }
+
+            // Close when clicking outside the form
+            const popupForm = document.getElementById("popup-form");
+            if (popupForm) {
+                popupForm.addEventListener("click", function (e) {
+                    if (e.target === this) {
+                        this.classList.remove("show");
+                    }
+                });
+            }
+        });
+
+
+        // Parallax effect for hero section
+        // window.addEventListener('scroll', function() {
+        //     const scrolled = window.pageYOffset;
+        //     const hero = document.querySelector('.hero-section');
+        //     if (hero) {
+        //         hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        //     }
+        // });
+    </script>
+</body>
+
+</html>

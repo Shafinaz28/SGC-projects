@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skandhasiri Enclave | Plots in Devanahalli</title>
+    <meta name="description" content="Skandhasiri Enclave offers premium residential villa plots in Doddaballapur with modern amenities, clear titles, and excellent connectivity.">
+    <meta name="keywords" content="Skandhasiri Enclave, villa plots Doddaballapur, residential plots Bangalore, DPA approved plots, gated community">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./animate.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        /* Override Tailwind to ensure container works properly */
+        .container {
+            max-width: 1280px !important;
+            margin: 0 auto !important;
+            padding: 0 1rem !important;
+        }
+
+        .hero-bg {
+            background-image: url(./assets/herobgimg.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(rgba(16, 0, 0, 0.6), rgba(0, 0, 0, 0.6) 100%);
+        }
+
+        .text-stroke {
+            -webkit-text-stroke: 1px #FFFFFF;
+        }
+
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 179, 0, 0.2);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 179, 0, 0.5);
+            border-radius: 3px;
+        }
+
+        .modal-overlay {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s ease-in-out;
+        }
+
+        .modal-overlay.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-content {
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        .modal-overlay.show .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased text-[#212121] bg-white">
+
+    <header class="header scrolled">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="./assets/mainlogo.png" alt="Surya Group of Companies Logo" width="250">
+                </div>
+                
+                <nav class="desktop-nav">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="investments.html">Investments</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+                
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        <nav class="mobile-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="projects.html">Projects</a>
+            <a href="investments.html">Investments</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section id="hero" class="relative h-screen w-full flex items-center justify-center overflow-hidden hero-bg">
+        <div class="hero-gradient absolute inset-0 z-10"></div>
+        <div class="container relative z-20 text-center" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-yellow-500">
+                Skandhasiri Enclave
+            </h1>
+            <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-10 text-white">
+                Your canvas for a dream home, where nature becomes your neighbor. Discover premium residential villa plots in Doddaballapur with modern amenities and excellent connectivity.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <button id="enquireBtn"
+                    class="px-8 py-4 bg-yellow-500 hover:bg-yellow-500 text-white rounded-lg font-medium text-lg transition-all duration-300 transform hover:scale-105">
+                    ENQUIRE NOW
+                </button>
+                <a href="#features"
+                    class="px-8 py-4 bg-transparent border-2 border-white hover:bg-white text-white hover:text-yellow-500 rounded-lg font-medium text-lg transition-all duration-300 transform hover:scale-105">
+                    AMENITIES
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="modal-container" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div id="modal-content" class="modal-content bg-white p-8 rounded-xl shadow-2xl w-full max-w-lg relative">
+            <button id="closeBtn"
+                class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors duration-200">
+                <i data-feather="x" class="w-6 h-6"></i>
+            </button>
+            <h2 class="text-3xl font-bold mb-6 text-center text-yellow-500">
+                Get More Details
+            </h2>
+            <form id="modalForm" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-[#212121] mb-2">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00796b]"
+                        required>
+                </div>
+
+                <div>
+                    <label for="phone" class="block text-[#212121] mb-2">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00796b]"
+                        required>
+                </div>
+
+                <div>
+                    <label for="phone" class="block text-[#212121] mb-2">Email Id</label>
+                    <input type="tel" id="email" name="email" placeholder="Email Id"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00796b]"
+                        required>
+                </div>
+                <div>
+                    <label for="project" class="block text-[#212121] mb-2">Interested In</label>
+                    <select id="project" name="project"
+                        class="w-full px-4 py-3 border border-yellow-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                        required>
+                        <option value="">Select</option>
+                        <option value="Looking For Dream House">Looking For Dream House</option>
+                        <option value="Investment">Investment</option>
+                    </select>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-yellow-500 hover:bg-yellow-500 text-white font-medium py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                    Submit Inquiry
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="container">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10" data-aos="fade-right">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        <span class="text-yellow-500">A Gated Community</span> of Serenity
+                    </h2>
+                    <p class="text-lg text-[#616161] mb-6">
+                        Skandhasiri Enclave offers meticulously planned residential plots designed for those who seek a
+                        peaceful lifestyle surrounded by lush greenery and modern amenities.
+                    </p>
+                    <p class="text-lg text-[#616161] mb-8">
+                        Located in the rapidly developing area of Doddaballapur, our community provides the perfect
+                        blend of natural beauty and urban convenience, offering high value returns and an ideal setting
+                        for your dream villa.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <i data-feather="check-circle" class="text-yellow-500 mr-2"></i>
+                            <span>100% Clear Titles</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="check-circle" class="text-yellow-500 mr-2"></i>
+                            <span>DPA Approved</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="check-circle" class="text-yellow-500 mr-2"></i>
+                            <span>Landscaped Gardens</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="check-circle" class="text-yellow-500 mr-2"></i>
+                            <span>24/7 Security</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2" data-aos="fade-left">
+                    <div class="relative rounded-xl overflow-hidden shadow-xl">
+                        <img src="./assets/Skandhasiri-Nature.jpg" alt="Skandhasiri Enclave" class="w-full h-auto">
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-xl font-bold text-white">Nature-Inspired Living</h3>
+                            <p class="text-white">A perfect setting for the villa of your dreams</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-20 bg-[#f5f5f5]">
+        <div class="container">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="text-yellow-500">Thoughtful</span> Amenities
+                </h2>
+                <p class="text-xl text-[#616161] max-w-3xl mx-auto">
+                    Experience a lifestyle of peace and health with our curated selection of amenities designed for a
+                    harmonious life
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-yellow-500 mb-4 flex justify-center">
+                        <i class="fas fa-tree text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Expansive Parks</h3>
+                    <p class="text-[#616161] text-center">
+                        Large, beautifully laid-out parks and seamless green spaces for recreation and relaxation.
+                    </p>
+                </div>
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-yellow-500 mb-4 flex justify-center">
+                        <i class="fas fa-running text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Jogging Track</h3>
+                    <p class="text-[#616161] text-center">
+                        A long jogging track that encircles the community, perfect for a healthy and active lifestyle.
+                    </p>
+                </div>
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-yellow-500 mb-4 flex justify-center">
+                        <i class="fas fa-shield-alt text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Gated Community with Security</h3>
+                    <p class="text-[#616161] text-center">
+                        A secure, gated community with 24/7 security and a grand welcome arch for your peace of mind.
+                    </p>
+                </div>
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-yellow-500 mb-4 flex justify-center">
+                        <i class="fas fa-child text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Children's Play Area</h3>
+                    <p class="text-[#616161] text-center">
+                        Dedicated and safe play areas where children can connect with nature and enjoy their time
+                        outdoors.
+                    </p>
+                </div>
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="500">
+                    <div class="text-yellow-500 mb-4 flex justify-center">
+                        <i class="fas fa-bolt text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Reliable Utilities</h3>
+                    <p class="text-[#616161] text-center">
+                        Seamless provision of electricity, water, and well-planned sewage and drainage systems for every
+                        plot.
+                    </p>
+                </div>
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="600">
+                    <div class="text-yellow-500 mb-4 flex justify-center">
+                        <i class="fas fa-road text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">Wide Black Top Roads</h3>
+                    <p class="text-[#616161] text-center">
+                        Well-maintained and wide black top roads ensure smooth navigation within the community.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="text-yellow-500">Project</span> Gallery
+                </h2>
+                <p class="text-xl text-[#616161] max-w-3xl mx-auto">
+                    A glimpse of the serene environment and meticulous development that defines Skandhasiri Enclave
+                </p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="relative group overflow-hidden rounded-xl shadow-xl" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="./assets/Landscaped-Gardens.jpg" alt="Landscaped Gardens"
+                        class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer">
+                </div>
+                <div class="relative group overflow-hidden rounded-xl shadow-xl" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="./assets/Community Roads.jpg" alt="Community Roads"
+                        class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer">
+                </div>
+                <div class="relative group overflow-hidden rounded-xl shadow-xl" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="./assets/Play Area.jpg" alt="Play Area"
+                        class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer">
+                </div>
+                <div class="relative group overflow-hidden rounded-xl shadow-xl" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="./assets/Serene Spot.jpg" alt="Serene Spot"
+                        class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer">
+                </div>
+                <div class="relative group overflow-hidden rounded-xl shadow-xl" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="./assets/Plot Layout.jpg" alt="Plot Layout"
+                        class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer">
+                </div>
+                <div class="relative group overflow-hidden rounded-xl shadow-xl" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="./assets/Entrance Arch.jpg" alt="Entrance Arch"
+                        class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500 cursor-pointer">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox"
+        class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center hidden z-50">
+        <span id="closeLightbox" class="absolute top-6 right-8 text-white text-4xl cursor-pointer">&times;</span>
+        <img id="lightboxImage" src="" alt="Full Image" class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl">
+    </div>
+
+    <section id="testimonials" class="py-20 bg-[#f5f5f5]">
+    <div class="container">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                <span class="text-yellow-500">What Our</span> Customers Say
+            </h2>
+            <p class="text-xl text-[#616161] max-w-3xl mx-auto">
+                Hear from those who have chosen Skandhasiri Enclave as their future home
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Testimonial 1 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                        <img src="assets/custom1.jpg" alt="Priya Nair"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold">Nair</h4>
+                        <p class="text-[#616161] text-sm">Plot Owner since 2022</p>
+                    </div>
+                </div>
+                <p class="text-[#616161] italic">
+                    "Buying at Skandhasiri Enclave was the best decision for our family. The community is safe,
+                    and the greenery around makes it feel like a true retreat."
+                </p>
+                <div class="flex mt-4 text-[#FFB300]">
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                        <img src="assets/custom2.jpg" alt="Arjun Mehta"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold">Mehta</h4>
+                        <p class="text-[#616161] text-sm">Plot Owner since 2023</p>
+                    </div>
+                </div>
+                <p class="text-[#616161] italic">
+                    "The buying process was smooth and transparent. I really appreciate the clear documentation 
+                    and the developer’s support at every step."
+                </p>
+                <div class="flex mt-4 text-[#FFB300]">
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                        <img src="./assets/custom3.jpg" alt="Sneha Reddy"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="font-bold">Reddy</h4>
+                        <p class="text-[#616161] text-sm">Plot Owner since 2021</p>
+                    </div>
+                </div>
+                <p class="text-[#616161] italic">
+                    "The infrastructure here is excellent. Roads, drainage, and electricity are well planned. 
+                    I can already see this community growing into a wonderful neighborhood."
+                </p>
+                <div class="flex mt-4 text-[#FFB300]">
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                    <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+    <section id="contact" class="py-20 bg-white">
+        <div class="container">
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10" data-aos="fade-right">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        <span class="text-yellow-500">Discover</span> Your Future Home
+                    </h2>
+                    <p class="text-lg text-[#616161] mb-8">
+                        Schedule a site visit or request more information about available plots. Our team is ready to
+                        assist you in making your dream a reality.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-yellow-500 mr-4 mt-1">
+                                <i data-feather="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Location</h4>
+                                <p class="text-[#616161]">Ghatti Road, Vaddarahalli, Doddaballapura, Bengaluru</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-yellow-500 mr-4 mt-1">
+                                <i data-feather="phone" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Contact</h4>
+                                <p class="text-[#616161]">+91 99454 86900</p>
+                                <p class="text-[#616161]">info@suryagroupofcompanies.in</p>
+
+
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-yellow-500 mr-4 mt-1">
+                                <i data-feather="clock" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Sales Office Hours</h4>
+                                <p class="text-[#616161]">Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                                <p class="text-[#616161]">Sunday: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2" data-aos="fade-left">
+                    <form id="contactForm" class="bg-[#f5f5f5] p-8 rounded-xl shadow-lg">
+                        <div class="mb-6">
+                            <label for="name" class="block text-[#212121] mb-2">Full Name</label>
+                            <input type="text" id="name" name="name"
+                                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00796b] text-[#212121]">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-[#212121] mb-2">Email Address</label>
+                            <input type="email" id="email" name="email"
+                                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00796b] text-[#212121]">
+                        </div>
+                        <div class="mb-6">
+                            <label for="phone" class="block text-[#212121] mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone"
+                                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00796b] text-[#212121]">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-[#212121] mb-2">Your Message</label>
+                            <textarea id="message" name="message" rows="4"
+                                class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00796b] text-[#212121]"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-yellow-500 hover:bg-yellow-500 text-white font-medium py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                            Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <footer class="bg-[#212121] text-[#b0bec5] py-12">
+        <div class="container">
+            <div class="flex flex-col md:flex-row md:justify-between items-start md:items-start gap-12">
+                <div class="flex flex-col items-start gap-4 md:w-1/4">
+                    <img src="./assets/mainlogo.png" alt="Logo" class="h-12 mb-4">
+                    <p class="text-sm">
+                        Building tomorrow's skyline with today's vision. Surya Group
+                        offers premium real estate opportunities with exceptional returns.
+                    </p>
+                    <div class="flex space-x-4 mt-2">
+                        <a href="https://www.facebook.com/profile.php?id=61574781766926" aria-label="Facebook"
+                            class="text-white hover:text-[#ffb300] transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-facebook">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/surya.groups.of.companies" aria-label="Instagram"
+                            class="text-white hover:text-[#ffb300] transition-colors duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-instagram">
+                                <rect width="18" height="18" x="3" y="3" rx="4" ry="4" />
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="flex flex-col md:flex-row flex-wrap justify-between gap-8 md:w-3/4">
+                    <div class="flex-1 min-w-[150px]">
+                        <h3 class="font-bold text-lg text-[#ffb300] mb-4">Quick Links</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="./index.html" class="hover:text-white transition-colors duration-300">Home</a>
+                            </li>
+                            <li><a href="./about.html" class="hover:text-white transition-colors duration-300">About
+                                    Us</a></li>
+                            <li><a href="./projects.html"
+                                    class="hover:text-white transition-colors duration-300">Projects</a></li>
+                            <li><a href="./investments.html"
+                                    class="hover:text-white transition-colors duration-300">investments</a></li>
+                            <li><a href="./contact.html"
+                                    class="hover:text-white transition-colors duration-300">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="flex-1 min-w-[150px]">
+                        <h3 class="font-bold text-lg text-[#ffb300] mb-4">Projects</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="SkandhasiriEnclave.html"
+                                    class="hover:text-white transition-colors duration-300">Skandhasiri Enclave</a></li>
+                            <li><a href="AkshayamanorPlots.html"
+                                    class="hover:text-white transition-colors duration-300">Akshaya Manor</a></li>
+                            <li><a href="kousthubham.html"
+                                    class="hover:text-white transition-colors duration-300">Kousthubham Layout</a></li>
+                            <li><a href="MoggsTerraHill.html "
+                                    class="hover:text-white transition-colors duration-300">Moggs Terra Hill</a></li>
+                            <li><a href="MoggsAira.html" class="hover:text-white transition-colors duration-300">Moggs
+                                    Aira Phase 2</a></li>
+                            <li><a href="Soven-Sachi.html" class="hover:text-white transition-colors duration-300">Soven
+                                    Sachi</a></li>
+                            <li><a href="Merusri-Sunscape.html"
+                                    class="hover:text-white transition-colors duration-300">Merusri Sunscape</a></li>
+
+
+                        </ul>
+                    </div>
+                    <div class="flex-1 min-w-[250px]">
+                        <h3 class="font-bold text-lg text-[#ffb300] mb-4">Newsletter</h3>
+                        <p class="text-sm mb-4">
+                            Subscribe to get the latest updates on new projects and
+                            investment opportunities.
+                        </p>
+                        <div class="flex rounded-full overflow-hidden">
+                            <input type="email" placeholder="Your email"
+                                class="flex-grow px-4 py-3 bg-[#424242] text-white outline-none border border-[#616161]">
+                            <button aria-label="Subscribe" class="bg-[#ffb300] p-3 flex-shrink-0">
+                                <img src="https://api.iconify.design/lucide:arrow-right.svg" alt="Subscribe"
+                                    class="w-5 h-5 filter invert">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-t border-[#424242] my-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm">
+                <p>&copy; 2024 Surya Group of Companies. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors duration-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors duration-300">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+ <script>
+        // Initialize AOS for animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Replace Feather icons
+        feather.replace();
+
+        // --- MODAL LOGIC (DEFINED ONCE) ---
+
+        // Function to show the modal
+        function showModal() {
+            document.getElementById("modal-container").classList.add("show");
+        }
+
+        // Function to hide the modal
+        function hideModal() {
+            document.getElementById("modal-container").classList.remove("show");
+        }
+
+        // Show popup automatically after 10 seconds
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(showModal, 10000);
+        });
+
+        // Show popup every 20 seconds
+        setInterval(showModal, 20000);
+
+        // Open modal when "ENQUIRE NOW" button is clicked
+        document.getElementById("enquireBtn").addEventListener("click", showModal);
+
+        // Close button functionality
+        document.getElementById("closeBtn").addEventListener("click", hideModal);
+
+        // Close the modal when clicking outside the form
+        window.addEventListener('click', function (event) {
+            const modalContainer = document.getElementById('modal-container');
+            if (event.target === modalContainer) {
+                hideModal();
+            }
+        });
+
+        // --- FORM SUBMISSION LOGIC ---
+
+        const scriptURL = "https://script.google.com/macros/s/AKfycbxh6zCit6w9f0l_yMu5M8VtZ17oeMB21LJRnvIBHOaUoqrfQUI8-zS8vvcIo_nWNu1T/exec";
+
+        // Popup form
+        const modalForm = document.getElementById('modalForm');
+        if (modalForm) {
+            modalForm.addEventListener('submit', e => submitForm(e, modalForm));
+        }
+
+        // Contact form
+        const contactForm = document.querySelector('#contact form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', e => submitForm(e, contactForm));
+        }
+
+        // Reusable function to submit forms
+        function submitForm(e, form) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const submitButton = form.querySelector('button[type="submit"]');
+
+            // Stage 1: Change button text and disable it
+            submitButton.textContent = "Loading...";
+            submitButton.disabled = true;
+
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => {
+                    // Ensure a successful HTTP status before parsing JSON
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Network response was not ok.');
+                    }
+                })
+                .then(data => {
+                    // Stage 2: Handle success/error from Google Apps Script response
+                    if (data.result === 'success') {
+                        Swal.fire({
+                            title: '✅ Process finished successfully!',
+                            text: 'Your inquiry has been submitted.',
+                            icon: 'success',
+                            confirmButtonColor: '#4CAF50'
+                        });
+                        form.reset();
+                    } else {
+                        Swal.fire({
+                            title: '❌ Error',
+                            text: 'Something went wrong. Please try again!',
+                            icon: 'error',
+                            confirmButtonColor: '#d33'
+                        });
+                        console.error('Submission error:', data.error);
+                    }
+                })
+                .catch(error => {
+                    // Stage 2 (Error): Handle network or parsing errors
+                    Swal.fire({
+                        title: '❌ Error',
+                        text: 'Something went wrong. Please try again!',
+                        icon: 'error',
+                        confirmButtonColor: '#d33'
+                    });
+                    console.error('Error!', error.message);
+                })
+                .finally(() => {
+                    // Stage 3: Reset button state in all cases
+                    submitButton.textContent = "Submit Inquiry";
+                    submitButton.disabled = false;
+                });
+        }
+
+
+    </script>
+</body>
+
+</html>
